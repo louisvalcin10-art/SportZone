@@ -42,7 +42,7 @@
         const motdepasse = document.getElementById("password").value;
 
         const message = document.getElementById("message");
-
+       message.textContent = "Connexion en cours...";
         try {
            const reponse = await fetch("https://sportzone-9xz2.onrender.com/connexion", {
                 method: "POST",

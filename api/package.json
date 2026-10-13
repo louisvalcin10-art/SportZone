@@ -1,4 +1,3 @@
-
 {
   "name": "sportzone-api",
   "version": "1.0.0",
@@ -10,6 +9,7 @@
   "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.6",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "sqlite3": "^6.0.1"
   }
 }

@@ -1,0 +1,46 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports - SportZone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Les sports</h1>
+
+    
+<p>Découvre les différents sports sur SportZone.</p>
+
+<h2>Les sports disponibles</h2>
+<ul id="liste-sports"></ul>
+    
+<nav>
+        <a href="index.html">Accueil</a>
+        <a href="sports.html">Sports</a>
+        <a href="actualites.html">Actualités</a>
+        <a href="connexion.html">Connexion</a>
+    </nav>
+<script>
+fetch("http://localhost:300/sports")
+    .then(response => response.json())
+    .then(sports => {
+        const liste = document.getElementById("liste-sports");
+
+        sports.forEach(sport => {
+            const li = document.createElement("li");
+            li.textContent = sport.nom;
+            liste.appendChild(li);
+        });
+    })
+    .catch(erreur => {
+        console.error("Erreur :", erreur);
+    });
+</script>
+
+</body>
+</html>
+```

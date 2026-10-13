@@ -1,0 +1,16 @@
+
+# Base de données et fichiers sensibles
+api/*.db
+api/*.db-*
+.env
+.env.*
+!.env.example
+
+# Dépendances Node.js
+node_modules/
+api/node_modules/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+sportzone.db

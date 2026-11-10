@@ -7,117 +7,254 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les sports - SportZone</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background: #F4F7FA;
+            color: #102A43;
+        }
+
+        .contenu-sports {
+            max-width: 1100px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        .banniere-sports {
+            background: linear-gradient(135deg, #102A43, #168AAD);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 20px;
+            animation: apparition 1s ease;
+        }
+
+        .banniere-sports h1 {
+            color: white;
+            font-size: 38px;
+        }
+
+        .banniere-sports p {
+            font-size: 18px;
+        }
+
+        .bienvenue-sports {
+            text-align: center;
+            color: #168AAD;
+        }
+
+        .liste-sports {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px #00000010;
+            margin: 25px 0;
+        }
+
+        .cartes-sports {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .carte-sport {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            border-bottom: 5px solid #168AAD;
+            box-shadow: 0 5px 18px #00000012;
+            transition: 0.3s;
+            animation: apparition 1s ease;
+        }
+
+        .carte-sport:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px #102A4325;
+        }
+
+        .carte-sport h2 {
+            color: #168AAD;
+            font-size: 25px;
+        }
+
+        .carte-sport h3 {
+            color: #102A43;
+            margin-top: 25px;
+        }
+
+        .section-finale {
+            background: linear-gradient(135deg, #102A43, #168AAD);
+            color: white;
+            padding: 30px;
+            border-radius: 18px;
+            margin-top: 35px;
+        }
+
+        .section-finale h2 {
+            color: white;
+        }
+
+        .deconnexion-bleue {
+            background: #102A43;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        @keyframes apparition {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .banniere-sports h1 {
+                font-size: 29px;
+            }
+
+            .contenu-sports {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <h1>Découvre les sports sur SportZone !</h1>
-
-    <h2 id="bienvenue"></h2>
-
-    <button id="deconnexion" type="button" hidden>
-        Se déconnecter
-    </button>
-
-    <p>
-        Bienvenue dans notre espace consacré au sport !
-        Découvre les règles, les objectifs et les particularités
-        de plusieurs disciplines sportives.
-    </p>
-
-    <h2>Les sports disponibles</h2>
-    <ul id="liste-sports"></ul>
-
-    <hr>
-
-    <h2>⚽ Le football</h2>
-
-    <p>
-        Le football est un sport collectif qui oppose deux équipes
-        de onze joueurs. Le but est de marquer des buts en envoyant
-        le ballon dans le but adverse.
-    </p>
-
-    <h3>Les règles principales</h3>
-    <ul>
-        <li>Chaque équipe compte onze joueurs sur le terrain.</li>
-        <li>Un match dure généralement 90 minutes.</li>
-        <li>Les joueurs ne peuvent pas toucher le ballon avec les mains,
-            sauf le gardien dans sa surface de réparation.</li>
-        <li>L'équipe qui marque le plus de buts gagne le match.</li>
-    </ul>
-
-    <h3>Les grandes compétitions</h3>
-    <p>
-        La Coupe du monde, la Ligue des champions et les championnats
-        nationaux font partie des grandes compétitions de football.
-    </p>
-
-    <hr>
-
-    <h2>🏀 Le basketball</h2>
-
-    <p>
-        Le basketball est un sport collectif qui oppose deux équipes
-        de cinq joueurs sur le terrain. L'objectif est de marquer
-        des points en faisant entrer le ballon dans le panier adverse.
-    </p>
-
-    <h3>Les règles principales</h3>
-    <ul>
-        <li>Chaque équipe joue avec cinq joueurs sur le terrain.</li>
-        <li>Un panier classique vaut deux points.</li>
-        <li>Un tir réussi derrière la ligne à trois points vaut trois points.</li>
-        <li>Les joueurs doivent dribbler pour se déplacer avec le ballon.</li>
-    </ul>
-
-    <h3>Les grandes compétitions</h3>
-    <p>
-        La NBA, l'EuroBasket et les Jeux olympiques sont des compétitions
-        importantes du basketball.
-    </p>
-
-    <hr>
-
-    <h2>🎾 Le tennis</h2>
-
-    <p>
-        Le tennis est un sport de raquette qui peut se jouer en simple
-        ou en double. Les joueurs doivent envoyer la balle dans le
-        terrain adverse en passant au-dessus du filet.
-    </p>
-
-    <h3>Les règles principales</h3>
-    <ul>
-        <li>Le tennis se joue en simple ou en double.</li>
-        <li>Les joueurs utilisent une raquette et une balle.</li>
-        <li>Le score évolue avec des points, des jeux et des sets.</li>
-        <li>Le joueur doit faire rebondir la balle dans les limites
-            du terrain adverse.</li>
-    </ul>
-
-    <h3>Les grands tournois</h3>
-    <p>
-        Roland-Garros, Wimbledon, l'US Open et l'Open d'Australie
-        sont les quatre tournois du Grand Chelem.
-    </p>
-
-    <hr>
-
-    <h2>Pourquoi faire du sport ?</h2>
-
-    <p>
-        Le sport permet de développer son endurance, sa coordination
-        et son esprit d'équipe. Il aide aussi à apprendre le respect,
-        la discipline et le dépassement de soi.
-    </p>
 
     <nav>
         <a href="index.html">Accueil</a>
         <a href="sports.html">Sports</a>
         <a href="actualites.html">Actualités</a>
         <a href="connexion.html">Connexion</a>
+        <a href="inscription.html">Inscription</a>
     </nav>
+
+    <main class="contenu-sports">
+
+        <section class="banniere-sports">
+            <h1>Découvre les sports sur SportZone !</h1>
+            <p>
+                Explore différentes disciplines sportives,
+                découvre leurs règles et leurs grandes compétitions.
+            </p>
+        </section>
+
+        <h2 id="bienvenue" class="bienvenue-sports"></h2>
+
+        <button id="deconnexion" class="deconnexion-bleue"
+            type="button" hidden>
+            Se déconnecter
+        </button>
+
+        <section class="liste-sports">
+            <h2>Les sports disponibles</h2>
+            <ul id="liste-sports">
+                <li>Chargement des sports...</li>
+            </ul>
+        </section>
+
+        <h2>Les disciplines sportives</h2>
+
+        <div class="cartes-sports">
+
+            <article class="carte-sport">
+                <h2>⚽ Le football</h2>
+
+                <p>
+                    Le football est un sport collectif qui oppose deux équipes
+                    de onze joueurs. Le but est de marquer des buts en envoyant
+                    le ballon dans le but adverse.
+                </p>
+
+                <h3>Les règles principales</h3>
+                <ul>
+                    <li>Chaque équipe compte onze joueurs sur le terrain.</li>
+                    <li>Un match dure généralement 90 minutes.</li>
+                    <li>Seul le gardien peut toucher le ballon avec les mains
+                        dans sa surface de réparation.</li>
+                    <li>L'équipe qui marque le plus de buts gagne.</li>
+                </ul>
+
+                <h3>Les grandes compétitions</h3>
+                <p>
+                    La Coupe du monde, la Ligue des champions et les
+                    championnats nationaux sont de grandes compétitions.
+                </p>
+            </article>
+
+            <article class="carte-sport">
+                <h2>🏀 Le basketball</h2>
+
+                <p>
+                    Le basketball oppose deux équipes de cinq joueurs.
+                    L'objectif est de marquer des points en faisant entrer
+                    le ballon dans le panier adverse.
+                </p>
+
+                <h3>Les règles principales</h3>
+                <ul>
+                    <li>Chaque équipe joue avec cinq joueurs sur le terrain.</li>
+                    <li>Un panier classique vaut deux points.</li>
+                    <li>Un tir derrière la ligne à trois points vaut trois points.</li>
+                    <li>Les joueurs doivent dribbler pour avancer avec le ballon.</li>
+                </ul>
+
+                <h3>Les grandes compétitions</h3>
+                <p>
+                    La NBA, l'EuroBasket et les Jeux olympiques sont
+                    des compétitions importantes du basketball.
+                </p>
+            </article>
+
+            <article class="carte-sport">
+                <h2>🎾 Le tennis</h2>
+
+                <p>
+                    Le tennis est un sport de raquette qui peut se jouer
+                    en simple ou en double. Les joueurs doivent envoyer
+                    la balle dans le terrain adverse.
+                </p>
+
+                <h3>Les règles principales</h3>
+                <ul>
+                    <li>Le tennis se joue en simple ou en double.</li>
+                    <li>Les joueurs utilisent une raquette et une balle.</li>
+                    <li>Le score évolue avec des points, des jeux et des sets.</li>
+                    <li>La balle doit rebondir dans les limites du terrain adverse.</li>
+                </ul>
+
+                <h3>Les grands tournois</h3>
+                <p>
+                    Roland-Garros, Wimbledon, l'US Open et l'Open d'Australie
+                    sont les quatre tournois du Grand Chelem.
+                </p>
+            </article>
+
+        </div>
+
+        <section class="section-finale">
+            <h2>🏆 Pourquoi faire du sport ?</h2>
+
+            <p>
+                Le sport permet de développer son endurance, sa coordination
+                et son esprit d'équipe. Il aide aussi à apprendre le respect,
+                la discipline et le dépassement de soi.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 SportZone - Tous droits réservés</p>
+    </footer>
 
     <script>
         const bienvenue = document.getElementById("bienvenue");
@@ -145,6 +282,7 @@
             })
             .then(sports => {
                 const liste = document.getElementById("liste-sports");
+                liste.innerHTML = "";
 
                 sports.forEach(sport => {
                     const li = document.createElement("li");
@@ -154,6 +292,8 @@
             })
             .catch(erreur => {
                 console.error("Erreur :", erreur);
+                document.getElementById("liste-sports").innerHTML =
+                    "<li>Impossible de charger les sports pour le moment.</li>";
             });
     </script>
 

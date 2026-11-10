@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,37 +6,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - SportZone</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #102A43, #168AAD);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            color: #102A43;
+        }
+
+        nav {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .carte {
+            background: white;
+            width: 100%;
+            max-width: 430px;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #102A43;
+        }
+
+        .description {
+            text-align: center;
+            color: #627D98;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 20px;
+            border: 1px solid #BCCCDC;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #168AAD;
+            box-shadow: 0 0 0 3px rgba(22, 138, 173, 0.15);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #168AAD;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #102A43;
+        }
+
+        .liens {
+            text-align: center;
+            margin-top: 25px;
+            line-height: 2;
+        }
+
+        .liens a {
+            color: #168AAD;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .liens a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .carte {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Créer un compte - SportZone</h1>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="sports.html">Sports</a>
+        <a href="actualites.html">Actualités</a>
+        <a href="connexion.html">Connexion</a>
+    </nav>
 
-    <form id="form-inscription">
+    <div class="carte">
 
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required>
+        <h1>Créer un compte</h1>
 
-        <br><br>
+        <p class="description">
+            Rejoins la communauté SportZone !
+        </p>
 
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required>
+        <form id="form-inscription">
 
-        <br><br>
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
 
-        <label for="motdepasse">Mot de passe :</label>
-        <input type="password" id="motdepasse" name="motdepasse" required minlength="8">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
 
-        <br><br>
+            <label for="motdepasse">Mot de passe :</label>
+            <input type="password" id="motdepasse" name="motdepasse"
+                required minlength="8">
 
-        <button type="submit">S'inscrire</button>
+            <button type="submit">Créer mon compte</button>
 
-    </form>
+        </form>
 
-    <p>Déjà un compte ? <a href="connexion.html">Se connecter</a></p>
+        <div class="liens">
+            Déjà un compte ?
+            <a href="connexion.html">Se connecter</a>
+            <br>
+            <a href="index.html">Retour à l'accueil</a>
+        </div>
 
-    <p><a href="index.html">Retour à l'accueil</a></p>
+    </div>
 
     <script>
         document.getElementById("form-inscription").addEventListener("submit", async function(event) {
@@ -47,7 +178,7 @@
             const motdepasse = document.getElementById("motdepasse").value;
 
             try {
-          const reponse = await fetch("https://sportzone-9xz2.onrender.com/inscription", {
+                const reponse = await fetch("https://sportzone-9xz2.onrender.com/inscription", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -67,6 +198,7 @@
                 } else {
                     alert(resultat.erreur || "Erreur lors de l'inscription.");
                 }
+
             } catch (erreur) {
                 alert("Impossible de contacter le serveur. Vérifie que l'API est démarrée.");
             }
@@ -75,4 +207,3 @@
 
 </body>
 </html>
-```

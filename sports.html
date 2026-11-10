@@ -1,17 +1,17 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports - SportZone</title>
+    <title>Les sports - SportZone</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Les sports</h1>
+    <h1>Découvre les sports sur SportZone !</h1>
 
     <h2 id="bienvenue"></h2>
 
@@ -19,10 +19,98 @@
         Se déconnecter
     </button>
 
-    <p>Découvre les différents sports sur SportZone.</p>
+    <p>
+        Bienvenue dans notre espace consacré au sport !
+        Découvre les règles, les objectifs et les particularités
+        de plusieurs disciplines sportives.
+    </p>
 
     <h2>Les sports disponibles</h2>
     <ul id="liste-sports"></ul>
+
+    <hr>
+
+    <h2>⚽ Le football</h2>
+
+    <p>
+        Le football est un sport collectif qui oppose deux équipes
+        de onze joueurs. Le but est de marquer des buts en envoyant
+        le ballon dans le but adverse.
+    </p>
+
+    <h3>Les règles principales</h3>
+    <ul>
+        <li>Chaque équipe compte onze joueurs sur le terrain.</li>
+        <li>Un match dure généralement 90 minutes.</li>
+        <li>Les joueurs ne peuvent pas toucher le ballon avec les mains,
+            sauf le gardien dans sa surface de réparation.</li>
+        <li>L'équipe qui marque le plus de buts gagne le match.</li>
+    </ul>
+
+    <h3>Les grandes compétitions</h3>
+    <p>
+        La Coupe du monde, la Ligue des champions et les championnats
+        nationaux font partie des grandes compétitions de football.
+    </p>
+
+    <hr>
+
+    <h2>🏀 Le basketball</h2>
+
+    <p>
+        Le basketball est un sport collectif qui oppose deux équipes
+        de cinq joueurs sur le terrain. L'objectif est de marquer
+        des points en faisant entrer le ballon dans le panier adverse.
+    </p>
+
+    <h3>Les règles principales</h3>
+    <ul>
+        <li>Chaque équipe joue avec cinq joueurs sur le terrain.</li>
+        <li>Un panier classique vaut deux points.</li>
+        <li>Un tir réussi derrière la ligne à trois points vaut trois points.</li>
+        <li>Les joueurs doivent dribbler pour se déplacer avec le ballon.</li>
+    </ul>
+
+    <h3>Les grandes compétitions</h3>
+    <p>
+        La NBA, l'EuroBasket et les Jeux olympiques sont des compétitions
+        importantes du basketball.
+    </p>
+
+    <hr>
+
+    <h2>🎾 Le tennis</h2>
+
+    <p>
+        Le tennis est un sport de raquette qui peut se jouer en simple
+        ou en double. Les joueurs doivent envoyer la balle dans le
+        terrain adverse en passant au-dessus du filet.
+    </p>
+
+    <h3>Les règles principales</h3>
+    <ul>
+        <li>Le tennis se joue en simple ou en double.</li>
+        <li>Les joueurs utilisent une raquette et une balle.</li>
+        <li>Le score évolue avec des points, des jeux et des sets.</li>
+        <li>Le joueur doit faire rebondir la balle dans les limites
+            du terrain adverse.</li>
+    </ul>
+
+    <h3>Les grands tournois</h3>
+    <p>
+        Roland-Garros, Wimbledon, l'US Open et l'Open d'Australie
+        sont les quatre tournois du Grand Chelem.
+    </p>
+
+    <hr>
+
+    <h2>Pourquoi faire du sport ?</h2>
+
+    <p>
+        Le sport permet de développer son endurance, sa coordination
+        et son esprit d'équipe. Il aide aussi à apprendre le respect,
+        la discipline et le dépassement de soi.
+    </p>
 
     <nav>
         <a href="index.html">Accueil</a>
@@ -49,7 +137,12 @@
         });
 
         fetch("https://sportzone-9xz2.onrender.com/sports")
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Erreur lors du chargement des sports");
+                }
+                return response.json();
+            })
             .then(sports => {
                 const liste = document.getElementById("liste-sports");
 
@@ -66,4 +159,3 @@
 
 </body>
 </html>
-```

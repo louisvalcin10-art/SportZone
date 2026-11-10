@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -12,6 +13,12 @@
 
     <h1>Bienvenue sur SportZone !</h1>
 
+    <h2 id="bienvenue"></h2>
+
+    <button id="deconnexion" type="button" hidden>
+        Se déconnecter
+    </button>
+
     <p>Découvre les sports et les actualités sportives sur notre site.</p>
 
     <nav>
@@ -22,6 +29,26 @@
         <a href="inscription.html">Inscription</a>
     </nav>
 
+    <script>
+        const bienvenue = document.getElementById("bienvenue");
+        const boutonDeconnexion = document.getElementById("deconnexion");
+
+        const utilisateur = localStorage.getItem("utilisateur");
+
+        if (utilisateur) {
+            const donnees = JSON.parse(utilisateur);
+
+            bienvenue.textContent = "Bienvenue, " + donnees.nom + " !";
+            boutonDeconnexion.hidden = false;
+        }
+
+        boutonDeconnexion.addEventListener("click", function() {
+            localStorage.removeItem("utilisateur");
+            window.location.reload();
+        });
+    </script>
+
 </body>
 
 </html>
+```

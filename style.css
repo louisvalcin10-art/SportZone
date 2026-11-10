@@ -1,103 +1,272 @@
- body 
-{display: block;
-    margin-top: 15px;
 
+/* =========================
+   STYLE GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
 }
 
-input {
-    padding: 10px;
-    margin-top: 5px;
-}
-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    cursor: pointer;
-
-}
-.accueil { 
-    font-family: Arial ,
-    sans-serif;
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #eaf2f8;
-    color: #222;
-
+    background-color: #f8f5f0;
+    color: #292929;
+    line-height: 1.7;
 }
 
-nav {
-    background-color: #123b63;
-    padding: 18px;
-    text-align: center;
+/* =========================
+   TITRES
+========================= */
 
+h1 {
+    color: #b51225;
+    text-align: center;
+    font-size: 34px;
+    margin: 35px 15px 20px;
+}
+
+h2 {
+    color: #b51225;
+    margin-top: 25px;
+}
+
+h3 {
+    color: #d32f40;
+}
+
+/* =========================
+   MENU DE NAVIGATION
+========================= */
+
+nav {
+    background-color: #a80f23;
+    padding: 18px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: 0 4px 10px #00000020;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
-
-
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 25px;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    color: #0aff;
-
-}
-
-h1 {
-    text-align: center;
-    margin-top: 30px;
-
-}
-
-label {
     background-color: white;
-    padding: 30px;
-    margin: 30px;
-   border-radius:15px;
-   text-align: center;
+    color: #a80f23;
 }
 
-.accueil h2 {
-    color: #123b63
+/* =========================
+   CONTENU PRINCIPAL
+========================= */
+
+main {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 25px;
 }
+
+section,
+.article-actualite {
+    background-color: white;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 15px;
+    border-left: 5px solid #c51b30;
+    box-shadow: 0 4px 15px #00000010;
+}
+
+p {
+    margin: 15px 0;
+}
+
+ul {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #eadcda;
+    margin: 30px 0;
+}
+
+/* =========================
+   CARTES DES SPORTS
+========================= */
 
 .sport {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 25px;
     margin: 30px;
 }
 
 .carte {
     background-color: white;
-    padding: 20px;
-    border-radius: 15px;
+    padding: 25px;
+    border-radius: 18px;
     text-align: center;
-    width: 200px;
-    box-shadow: 0 4px 10px #bbb;
+    width: 230px;
+    border-bottom: 5px solid #c51b30;
+    box-shadow: 0 5px 15px #00000015;
+    transition: transform 0.3s;
 }
 
-.cart h2 {
-  color:#123b63;
+.carte:hover {
+    transform: translateY(-7px);
+}
+
+.carte h2 {
+    color: #b51225;
+}
+
+/* =========================
+   FORMULAIRES
+========================= */
+
+form {
+    background-color: white;
+    max-width: 450px;
+    margin: 35px auto;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px #00000015;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #d8ceca;
+    border-radius: 9px;
+    background-color: #fffdfa;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: 2px solid #c51b30;
+}
+
+/* =========================
+   BOUTONS
+========================= */
+
+button {
+    background-color: #b51225;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    padding: 12px 23px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #790c1a;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   PAGE ACCUEIL
+========================= */
+
+.accueil {
+    background-color: #f8f5f0;
+    color: #292929;
+}
+
+.accueil h2 {
+    color: #b51225;
 }
 
 .hero {
-    background-color: #123b63;
-    color:white;
-    padding : 60px 20px;
-margin:0 30px 30px;
-border-radius:15px;
-text-align:center;
-
+    background: linear-gradient(135deg, #790c1a, #c51b30);
+    color: white;
+    padding: 65px 25px;
+    margin: 30px;
+    border-radius: 20px;
+    text-align: center;
 }
 
 .hero h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
-
+    color: white;
+    font-size: 34px;
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: 19px;
+}
+
+/* =========================
+   PIED DE PAGE
+========================= */
+
+footer {
+    background-color: #790c1a;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 50px;
+}
+
+/* =========================
+   ADAPTATION TELEPHONE
+========================= */
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 27px;
+    }
+
+    nav {
+        gap: 5px;
+    }
+
+    nav a {
+        padding: 9px 12px;
+        margin: 3px;
+    }
+
+    main {
+        padding: 12px;
+    }
+
+    .sport {
+        margin: 15px;
+    }
+
+    .carte {
+        width: 100%;
+    }
+
+    .hero {
+        margin: 15px;
+        padding: 40px 15px;
+    }
+
+    form {
+        margin: 20px 15px;
+    }
 }

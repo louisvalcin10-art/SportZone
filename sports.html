@@ -1,6 +1,7 @@
 ```html
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,34 +13,56 @@
 
     <h1>Les sports</h1>
 
-    
-<p>Découvre les différents sports sur SportZone.</p>
+    <h2 id="bienvenue"></h2>
 
-<h2>Les sports disponibles</h2>
-<ul id="liste-sports"></ul>
-    
-<nav>
+    <button id="deconnexion" type="button" hidden>
+        Se déconnecter
+    </button>
+
+    <p>Découvre les différents sports sur SportZone.</p>
+
+    <h2>Les sports disponibles</h2>
+    <ul id="liste-sports"></ul>
+
+    <nav>
         <a href="index.html">Accueil</a>
         <a href="sports.html">Sports</a>
         <a href="actualites.html">Actualités</a>
         <a href="connexion.html">Connexion</a>
     </nav>
-<script>
-fetch("https://sportzone-9xz2.onrender.com/sports")
-    .then(response => response.json())
-    .then(sports => {
-        const liste = document.getElementById("liste-sports");
 
-        sports.forEach(sport => {
-            const li = document.createElement("li");
-            li.textContent = sport.nom;
-            liste.appendChild(li);
+    <script>
+        const bienvenue = document.getElementById("bienvenue");
+        const boutonDeconnexion = document.getElementById("deconnexion");
+
+        const utilisateur = localStorage.getItem("utilisateur");
+
+        if (utilisateur) {
+            const donnees = JSON.parse(utilisateur);
+            bienvenue.textContent = "Bienvenue, " + donnees.nom + " !";
+            boutonDeconnexion.hidden = false;
+        }
+
+        boutonDeconnexion.addEventListener("click", function() {
+            localStorage.removeItem("utilisateur");
+            window.location.href = "connexion.html";
         });
-    })
-    .catch(erreur => {
-        console.error("Erreur :", erreur);
-    });
-</script>
+
+        fetch("https://sportzone-9xz2.onrender.com/sports")
+            .then(response => response.json())
+            .then(sports => {
+                const liste = document.getElementById("liste-sports");
+
+                sports.forEach(sport => {
+                    const li = document.createElement("li");
+                    li.textContent = sport.nom;
+                    liste.appendChild(li);
+                });
+            })
+            .catch(erreur => {
+                console.error("Erreur :", erreur);
+            });
+    </script>
 
 </body>
 </html>

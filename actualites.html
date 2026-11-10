@@ -1,18 +1,173 @@
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualités sportives - SportZone</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background: #F4F7FA;
+            color: #102A43;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: linear-gradient(135deg, #102A43, #168AAD);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header h2 {
+            font-size: 30px;
+            color: white;
+        }
+
+        nav {
+            background: #102A43;
+            padding: 18px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #168AAD;
+        }
+
+        .actualites-container {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 20px;
+        }
+
+        .titre-actualites {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        .grille-articles {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .article-actualite {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(16, 42, 67, 0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .article-actualite:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(16, 42, 67, 0.2);
+        }
+
+        .article-actualite img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .contenu-article {
+            padding: 23px;
+        }
+
+        .categorie {
+            color: #168AAD;
+            font-weight: bold;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .contenu-article h3 {
+            font-size: 21px;
+            margin: 12px 0;
+        }
+
+        .date {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        .contenu-article p {
+            line-height: 1.7;
+        }
+
+        .lire-source {
+            display: inline-block;
+            background: #168AAD;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 7px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .lire-source:hover {
+            background: #102A43;
+        }
+
+        footer {
+            background: #102A43;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 50px;
+        }
+
+        #deconnexion {
+            background: white;
+            color: #102A43;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        @media (max-width: 700px) {
+            .grille-articles {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
     <header>
-        <h1>SportZone</h1>
-        <h2>Actualités sportives</h2>
-        <p>Découvre les dernières actualités du sport sur SportZone.</p>
+        <h1>SPORTZONE</h1>
+        <h2>Le magazine de l'actualité sportive</h2>
+        <p>Les résultats, les performances et les grands moments du sport.</p>
     </header>
 
     <nav>
@@ -24,65 +179,102 @@
 
     <main class="actualites-container">
 
-        <h2>Les dernières actualités</h2>
+        <h2 class="titre-actualites">À la une du sport</h2>
 
-        <section class="article-actualite">
-            <h3>⚽ Football : Marseille s'impose à Lens</h3>
-            <p><strong>Date :</strong> 9 novembre 2026</p>
-            <p>
-                L'Olympique de Marseille a remporté son match contre Lens.
-                Cette victoire permet à Marseille d'enchaîner une cinquième
-                victoire consécutive en championnat.
-            </p>
-            <a href="https://www.lemonde.fr/football/"
-               target="_blank" rel="noopener">
-                Lire la source
-            </a>
-        </section>
+        <div class="grille-articles">
 
-        <section class="article-actualite">
-            <h3>🎾 Tennis : Carlos Alcaraz remporte le Masters de Paris</h3>
-            <p><strong>Date :</strong> 8 novembre 2026</p>
-            <p>
-                L'Espagnol Carlos Alcaraz a remporté la finale face à
-                l'Américain Ben Shelton sur le score de 7-6 et 7-5.
-                Il décroche ainsi son neuvième titre en Masters 1000.
-            </p>
-            <a href="https://www.reuters.com/sports/tennis/alcaraz-beats-error-prone-shelton-win-paris-masters-2026-11-08/"
-               target="_blank" rel="noopener">
-                Lire la source
-            </a>
-        </section>
+            <section class="article-actualite">
+                <img
+                    src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=900"
+                    alt="Terrain de football">
 
-        <section class="article-actualite">
-            <h3>🏀 Basket : Victor Wembanyama impressionne en NBA</h3>
-            <p><strong>Date :</strong> 9 novembre 2026</p>
-            <p>
-                Le joueur français Victor Wembanyama réalise un excellent
-                début de saison avec les San Antonio Spurs. Il a notamment
-                inscrit 52 points contre Dallas et continue d'impressionner
-                par ses performances.
-            </p>
-            <a href="https://information.tv5monde.com/sport/basket-wembanyama-demarre-en-trombe-la-course-au-titre-de-mvp-2845156"
-               target="_blank" rel="noopener">
-                Lire la source
-            </a>
-        </section>
+                <div class="contenu-article">
+                    <span class="categorie">⚽ FOOTBALL</span>
+                    <h3>Marseille s'impose à Lens</h3>
+                    <p class="date">9 novembre 2026</p>
+                    <p>
+                        L'Olympique de Marseille a remporté son match
+                        contre Lens. Cette victoire permet à Marseille
+                        d'enchaîner une cinquième victoire consécutive
+                        en championnat.
+                    </p>
+                    <a class="lire-source"
+                       href="https://www.lemonde.fr/football/"
+                       target="_blank" rel="noopener">
+                        Lire la source →
+                    </a>
+                </div>
+            </section>
 
-        <section class="article-actualite">
-            <h3>🏀 NBA : les Sixers et les Lakers au sommet</h3>
-            <p><strong>Date :</strong> 9 novembre 2026</p>
-            <p>
-                Les Philadelphia 76ers et les Los Angeles Lakers ont
-                remporté leur neuvième victoire de la saison.
-                Les deux équipes occupent la première place de leur
-                conférence respective.
-            </p>
-            <a href="https://information.tv5monde.com/sport/nba-les-sixers-et-les-lakers-au-top-2845139"
-               target="_blank" rel="noopener">
-                Lire la source
-            </a>
-        </section>
+            <section class="article-actualite">
+                <img
+                    src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?w=900"
+                    alt="Court de tennis">
+
+                <div class="contenu-article">
+                    <span class="categorie">🎾 TENNIS</span>
+                    <h3>Alcaraz remporte le Masters de Paris</h3>
+                    <p class="date">8 novembre 2026</p>
+                    <p>
+                        L'Espagnol Carlos Alcaraz a remporté la finale
+                        face à l'Américain Ben Shelton sur le score
+                        de 7-6 et 7-5.
+                    </p>
+                    <a class="lire-source"
+                       href="https://www.reuters.com/sports/tennis/alcaraz-beats-error-prone-shelton-win-paris-masters-2026-11-08/"
+                       target="_blank" rel="noopener">
+                        Lire la source →
+                    </a>
+                </div>
+            </section>
+
+            <section class="article-actualite">
+                <img
+                    src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=900"
+                    alt="Match de basketball">
+
+                <div class="contenu-article">
+                    <span class="categorie">🏀 BASKETBALL</span>
+                    <h3>Wembanyama impressionne en NBA</h3>
+                    <p class="date">9 novembre 2026</p>
+                    <p>
+                        Le joueur français Victor Wembanyama réalise
+                        un excellent début de saison avec les San
+                        Antonio Spurs. Il continue d'impressionner
+                        par ses performances.
+                    </p>
+                    <a class="lire-source"
+                       href="https://information.tv5monde.com/sport/basket-wembanyama-demarre-en-trombe-la-course-au-titre-de-mvp-2845156"
+                       target="_blank" rel="noopener">
+                        Lire la source →
+                    </a>
+                </div>
+            </section>
+
+            <section class="article-actualite">
+                <img
+                    src="https://images.unsplash.com/photo-1519861531473-9200262188bf?w=900"
+                    alt="Ballon de basketball">
+
+                <div class="contenu-article">
+                    <span class="categorie">🏆 NBA</span>
+                    <h3>Les Sixers et les Lakers au sommet</h3>
+                    <p class="date">9 novembre 2026</p>
+                    <p>
+                        Les Philadelphia 76ers et les Los Angeles Lakers
+                        ont remporté leur neuvième victoire de la saison.
+                        Les deux équipes occupent la première place de
+                        leur conférence respective.
+                    </p>
+                    <a class="lire-source"
+                       href="https://information.tv5monde.com/sport/nba-les-sixers-et-les-lakers-au-top-2845139"
+                       target="_blank" rel="noopener">
+                        Lire la source →
+                    </a>
+                </div>
+            </section>
+
+        </div>
 
     </main>
 

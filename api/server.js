@@ -1,3 +1,4 @@
+
 const express = require("express");
 const cors = require("cors");
 const { randomBytes, scrypt, timingSafeEqual } = require("node:crypto");
@@ -137,7 +138,12 @@ app.post("/connexion", (req, res) => {
 
             if (valide) {
                 res.json({
-                    message: "Connexion réussie !"
+                    message: "Connexion réussie !",
+                    utilisateur: {
+                        id: utilisateur.id,
+                        nom: utilisateur.nom,
+                        email: utilisateur.email
+                    }
                 });
             } else {
                 res.status(401).json({
@@ -201,7 +207,6 @@ db.run(`
                 process.exit(1);
             }
 
-            // Ajouter nom si l'ancienne table ne possède pas cette colonne
             db.all("PRAGMA table_info(utilisateurs)", [], (err, colonnes) => {
                 if (err) {
                     console.error("Erreur vérification table :", err.message);

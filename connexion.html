@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -21,50 +22,66 @@
 
         <button type="submit">Se connecter</button>
 
-       </form>
+    </form>
+
+    <p id="message"></p>
+
+    <h2 id="bienvenue"></h2>
 
     <p>Pas encore de compte ?
         <a href="inscription.html">Créer un compte</a>
     </p>
 
-    <p id="message"></p>
     <nav>
         <a href="index.html">Accueil</a>
-        <a href="sport.html">Sports</a>
-        <a href="actualités.html">Actualités</a>
+        <a href="sports.html">Sports</a>
+        <a href="actualites.html">Actualités</a>
         <a href="connexion.html">Connexion</a>
     </nav>
-<script>
-    document.getElementById("form-connexion").addEventListener("submit", async function(event) {
-        event.preventDefault();
 
-        const email = document.getElementById("email").value;
-        const motdepasse = document.getElementById("password").value;
+    <script>
+        document.getElementById("form-connexion").addEventListener("submit", async function(event) {
+            event.preventDefault();
 
-        const message = document.getElementById("message");
-    
-        try {
-           const reponse = await fetch("https://sportzone-9xz2.onrender.com/connexion", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: email,
-                    motdepasse: motdepasse
-                })
-            });
+            const email = document.getElementById("email").value;
+            const motdepasse = document.getElementById("password").value;
 
-            const resultat = await reponse.json();
+            const message = document.getElementById("message");
+            const bienvenue = document.getElementById("bienvenue");
 
-            message.textContent = resultat.message || resultat.erreur;
+            bienvenue.textContent = "";
 
-        } catch (erreur) {
-            message.textContent = "Impossible de contacter le serveur.";
-        }
-    });
-</script>
+            try {
+                const reponse = await fetch("https://sportzone-9xz2.onrender.com/connexion", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        motdepasse: motdepasse
+                    })
+                });
+
+                const resultat = await reponse.json();
+
+                message.textContent = resultat.message || resultat.erreur;
+
+                if (reponse.ok && resultat.utilisateur) {
+                    localStorage.setItem(
+                        "utilisateur",
+                        JSON.stringify(resultat.utilisateur)
+                    );
+
+                    bienvenue.textContent =
+                        "Bienvenue, " + resultat.utilisateur.nom + " !";
+                }
+
+            } catch (erreur) {
+                message.textContent = "Impossible de contacter le serveur.";
+            }
+        });
+    </script>
 
 </body>
-
 </html>

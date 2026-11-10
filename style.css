@@ -11,8 +11,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f5f0;
-    color: #292929;
+    background-color: #F4F7FA;
+    color: #102A43;
     line-height: 1.7;
 }
 
@@ -21,19 +21,19 @@ body {
 ========================= */
 
 h1 {
-    color: #b51225;
+    color: #102A43;
     text-align: center;
     font-size: 34px;
     margin: 35px 15px 20px;
 }
 
 h2 {
-    color: #b51225;
+    color: #168AAD;
     margin-top: 25px;
 }
 
 h3 {
-    color: #d32f40;
+    color: #168AAD;
 }
 
 /* =========================
@@ -41,7 +41,7 @@ h3 {
 ========================= */
 
 nav {
-    background-color: #a80f23;
+    background-color: #102A43;
     padding: 18px 10px;
     display: flex;
     justify-content: center;
@@ -61,8 +61,8 @@ nav a {
 }
 
 nav a:hover {
-    background-color: white;
-    color: #a80f23;
+    background-color: #168AAD;
+    color: white;
 }
 
 /* =========================
@@ -81,7 +81,7 @@ section,
     padding: 25px;
     margin: 25px 0;
     border-radius: 15px;
-    border-left: 5px solid #c51b30;
+    border-left: 5px solid #168AAD;
     box-shadow: 0 4px 15px #00000010;
 }
 
@@ -99,7 +99,7 @@ li {
 
 hr {
     border: none;
-    border-top: 2px solid #eadcda;
+    border-top: 2px solid #D9E5EF;
     margin: 30px 0;
 }
 
@@ -121,7 +121,7 @@ hr {
     border-radius: 18px;
     text-align: center;
     width: 230px;
-    border-bottom: 5px solid #c51b30;
+    border-bottom: 5px solid #168AAD;
     box-shadow: 0 5px 15px #00000015;
     transition: transform 0.3s;
 }
@@ -131,7 +131,7 @@ hr {
 }
 
 .carte h2 {
-    color: #b51225;
+    color: #168AAD;
 }
 
 /* =========================
@@ -157,14 +157,14 @@ input {
     padding: 13px;
     margin-top: 6px;
     margin-bottom: 15px;
-    border: 1px solid #d8ceca;
+    border: 1px solid #C8D8E5;
     border-radius: 9px;
-    background-color: #fffdfa;
+    background-color: #FFFFFF;
     font-size: 15px;
 }
 
 input:focus {
-    outline: 2px solid #c51b30;
+    outline: 2px solid #168AAD;
 }
 
 /* =========================
@@ -172,7 +172,7 @@ input:focus {
 ========================= */
 
 button {
-    background-color: #b51225;
+    background-color: #102A43;
     color: white;
     border: none;
     border-radius: 25px;
@@ -184,7 +184,7 @@ button {
 }
 
 button:hover {
-    background-color: #790c1a;
+    background-color: #168AAD;
     transform: translateY(-2px);
 }
 
@@ -193,16 +193,16 @@ button:hover {
 ========================= */
 
 .accueil {
-    background-color: #f8f5f0;
-    color: #292929;
+    background-color: #F4F7FA;
+    color: #102A43;
 }
 
 .accueil h2 {
-    color: #b51225;
+    color: #168AAD;
 }
 
 .hero {
-    background: linear-gradient(135deg, #790c1a, #c51b30);
+    background: linear-gradient(135deg, #102A43, #168AAD);
     color: white;
     padding: 65px 25px;
     margin: 30px;
@@ -224,7 +224,7 @@ button:hover {
 ========================= */
 
 footer {
-    background-color: #790c1a;
+    background-color: #102A43;
     color: white;
     text-align: center;
     padding: 22px;

@@ -1,25 +1,19 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualités - SportZone</title>
+    <title>Actualités sportives - SportZone</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <h1>Actualités sportives</h1>
-
-    <h2 id="bienvenue"></h2>
-
-    <button id="deconnexion" type="button" hidden>
-        Se déconnecter
-    </button>
-
-    <p>Découvre les dernières actualités du sport sur SportZone.</p>
+    <header>
+        <h1>SportZone</h1>
+        <h2>Actualités sportives</h2>
+        <p>Découvre les dernières actualités du sport sur SportZone.</p>
+    </header>
 
     <nav>
         <a href="index.html">Accueil</a>
@@ -28,24 +22,98 @@
         <a href="connexion.html">Connexion</a>
     </nav>
 
-    <script>
-        const bienvenue = document.getElementById("bienvenue");
-        const boutonDeconnexion = document.getElementById("deconnexion");
+    <main class="actualites-container">
 
+        <h2>Les dernières actualités</h2>
+
+        <section class="article-actualite">
+            <h3>⚽ Football : Marseille s'impose à Lens</h3>
+            <p><strong>Date :</strong> 9 novembre 2026</p>
+            <p>
+                L'Olympique de Marseille a remporté son match contre Lens.
+                Cette victoire permet à Marseille d'enchaîner une cinquième
+                victoire consécutive en championnat.
+            </p>
+            <a href="https://www.lemonde.fr/football/"
+               target="_blank" rel="noopener">
+                Lire la source
+            </a>
+        </section>
+
+        <section class="article-actualite">
+            <h3>🎾 Tennis : Carlos Alcaraz remporte le Masters de Paris</h3>
+            <p><strong>Date :</strong> 8 novembre 2026</p>
+            <p>
+                L'Espagnol Carlos Alcaraz a remporté la finale face à
+                l'Américain Ben Shelton sur le score de 7-6 et 7-5.
+                Il décroche ainsi son neuvième titre en Masters 1000.
+            </p>
+            <a href="https://www.reuters.com/sports/tennis/alcaraz-beats-error-prone-shelton-win-paris-masters-2026-11-08/"
+               target="_blank" rel="noopener">
+                Lire la source
+            </a>
+        </section>
+
+        <section class="article-actualite">
+            <h3>🏀 Basket : Victor Wembanyama impressionne en NBA</h3>
+            <p><strong>Date :</strong> 9 novembre 2026</p>
+            <p>
+                Le joueur français Victor Wembanyama réalise un excellent
+                début de saison avec les San Antonio Spurs. Il a notamment
+                inscrit 52 points contre Dallas et continue d'impressionner
+                par ses performances.
+            </p>
+            <a href="https://information.tv5monde.com/sport/basket-wembanyama-demarre-en-trombe-la-course-au-titre-de-mvp-2845156"
+               target="_blank" rel="noopener">
+                Lire la source
+            </a>
+        </section>
+
+        <section class="article-actualite">
+            <h3>🏀 NBA : les Sixers et les Lakers au sommet</h3>
+            <p><strong>Date :</strong> 9 novembre 2026</p>
+            <p>
+                Les Philadelphia 76ers et les Los Angeles Lakers ont
+                remporté leur neuvième victoire de la saison.
+                Les deux équipes occupent la première place de leur
+                conférence respective.
+            </p>
+            <a href="https://information.tv5monde.com/sport/nba-les-sixers-et-les-lakers-au-top-2845139"
+               target="_blank" rel="noopener">
+                Lire la source
+            </a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 SportZone - Tous droits réservés</p>
+    </footer>
+
+    <script>
         const utilisateur = localStorage.getItem("utilisateur");
 
         if (utilisateur) {
             const donnees = JSON.parse(utilisateur);
-            bienvenue.textContent = "Bienvenue, " + donnees.nom + " !";
-            boutonDeconnexion.hidden = false;
-        }
 
-        boutonDeconnexion.addEventListener("click", function() {
-            localStorage.removeItem("utilisateur");
-            window.location.href = "connexion.html";
-        });
+            const bienvenue = document.createElement("h2");
+            bienvenue.id = "bienvenue";
+            bienvenue.textContent = "Bienvenue, " + donnees.nom + " !";
+
+            document.querySelector("header").appendChild(bienvenue);
+
+            const bouton = document.createElement("button");
+            bouton.id = "deconnexion";
+            bouton.textContent = "Déconnexion";
+
+            document.querySelector("header").appendChild(bouton);
+
+            bouton.addEventListener("click", function() {
+                localStorage.removeItem("utilisateur");
+                window.location.href = "connexion.html";
+            });
+        }
     </script>
 
 </body>
-
 </html>

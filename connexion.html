@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -25,8 +25,11 @@
     </form>
 
     <p id="message"></p>
-
     <h2 id="bienvenue"></h2>
+
+    <button id="deconnexion" type="button" hidden>
+        Se déconnecter
+    </button>
 
     <p>Pas encore de compte ?
         <a href="inscription.html">Créer un compte</a>
@@ -40,16 +43,32 @@
     </nav>
 
     <script>
-        document.getElementById("form-connexion").addEventListener("submit", async function(event) {
+        const formulaire = document.getElementById("form-connexion");
+        const message = document.getElementById("message");
+        const bienvenue = document.getElementById("bienvenue");
+        const boutonDeconnexion = document.getElementById("deconnexion");
+
+        function afficherUtilisateur() {
+            const utilisateur = localStorage.getItem("utilisateur");
+
+            if (utilisateur) {
+                const donnees = JSON.parse(utilisateur);
+
+                bienvenue.textContent = "Bienvenue, " + donnees.nom + " !";
+                formulaire.hidden = true;
+                boutonDeconnexion.hidden = false;
+            }
+        }
+
+        afficherUtilisateur();
+
+        formulaire.addEventListener("submit", async function(event) {
             event.preventDefault();
 
             const email = document.getElementById("email").value;
             const motdepasse = document.getElementById("password").value;
 
-            const message = document.getElementById("message");
-            const bienvenue = document.getElementById("bienvenue");
-
-            bienvenue.textContent = "";
+            message.textContent = "Connexion en cours...";
 
             try {
                 const reponse = await fetch("https://sportzone-9xz2.onrender.com/connexion", {
@@ -65,23 +84,33 @@
 
                 const resultat = await reponse.json();
 
-                message.textContent = resultat.message || resultat.erreur;
-
                 if (reponse.ok && resultat.utilisateur) {
                     localStorage.setItem(
                         "utilisateur",
                         JSON.stringify(resultat.utilisateur)
                     );
 
-                    bienvenue.textContent =
-                        "Bienvenue, " + resultat.utilisateur.nom + " !";
+                    message.textContent = "Connexion réussie !";
+                    afficherUtilisateur();
+                } else {
+                    message.textContent = resultat.message || resultat.erreur || "Identifiants incorrects.";
                 }
 
             } catch (erreur) {
                 message.textContent = "Impossible de contacter le serveur.";
             }
         });
+
+        boutonDeconnexion.addEventListener("click", function() {
+            localStorage.removeItem("utilisateur");
+
+            bienvenue.textContent = "";
+            message.textContent = "Déconnexion réussie.";
+            formulaire.hidden = false;
+            boutonDeconnexion.hidden = true;
+        });
     </script>
 
 </body>
 </html>
+```

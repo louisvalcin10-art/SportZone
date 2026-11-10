@@ -1,25 +1,51 @@
+
 <!DOCTYPE html>
-<html lang="Fr">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-    content="width=device-width,
-    initial-scale=1.0">
-    <title> ActualitéS - SportZone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités - SportZone</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1> Actualités sportives</h1>
+    <h1>Actualités sportives</h1>
 
-    <p> Découvre les dernières actualités du sport sur SportZone.</p>
+    <h2 id="bienvenue"></h2>
+
+    <button id="deconnexion" type="button" hidden>
+        Se déconnecter
+    </button>
+
+    <p>Découvre les dernières actualités du sport sur SportZone.</p>
+
     <nav>
-    <a href="index.html">Accueil</a>
- <a href="sports.html">Sports</a>
-    <a href="actualités.html">Actualités</a>
-    <a href="connexion.html">Connexion</a>
-</nav>
+        <a href="index.html">Accueil</a>
+        <a href="sports.html">Sports</a>
+        <a href="actualites.html">Actualités</a>
+        <a href="connexion.html">Connexion</a>
+    </nav>
+
+    <script>
+        const bienvenue = document.getElementById("bienvenue");
+        const boutonDeconnexion = document.getElementById("deconnexion");
+
+        const utilisateur = localStorage.getItem("utilisateur");
+
+        if (utilisateur) {
+            const donnees = JSON.parse(utilisateur);
+            bienvenue.textContent = "Bienvenue, " + donnees.nom + " !";
+            boutonDeconnexion.hidden = false;
+        }
+
+        boutonDeconnexion.addEventListener("click", function() {
+            localStorage.removeItem("utilisateur");
+            window.location.href = "connexion.html";
+        });
+    </script>
 
 </body>
- 
+
 </html>
